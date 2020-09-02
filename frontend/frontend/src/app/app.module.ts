@@ -9,9 +9,13 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ErrorComponent } from './error/error.component';
+import { ListTodosComponent } from './list-todos/list-todos.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, LoginComponent],
+  declarations: [AppComponent, WelcomeComponent, LoginComponent, ErrorComponent, ListTodosComponent, MenuComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
