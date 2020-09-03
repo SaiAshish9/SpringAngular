@@ -1,4 +1,4 @@
-package com.backend.backend;
+package com.backend.backend.helloworld;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.backend.backend;
+package com.backend.backend.helloworld;
 
 public class HelloBean {
 
