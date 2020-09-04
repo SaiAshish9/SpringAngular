@@ -1,3 +1,4 @@
+import { BasicAuthenticationService } from './../services/basic-auth.service';
 import { HardcodedAuthService } from './../services/hardcoded-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,10 +13,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private hardcodedAuthService: HardcodedAuthService,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private basicAuthService: BasicAuthenticationService
   ) {}
 
-  username = 'spring.angular';
+  username = 'user';
   password = '123';
   message = '';
 
@@ -38,7 +40,22 @@ export class LoginComponent implements OnInit {
       this.message = 'invalid credentials';
       this.openSnackBar(this.message, '');
     }
-    console.log(f.value);
+  }
+
+  handleBasicAuthLogin() {
+    this.basicAuthService
+      .executeAuthService(this.username, this.password)
+      .subscribe(
+        (data) => {
+          console.log(data)
+          this.router.navigate(['welcome', this.username]);
+          this.openSnackBar('success', '');
+        },
+        (error) => {
+          console.log(error);
+          this.openSnackBar('something went wrong!', '');
+        }
+      );
   }
 
   ngOnInit(): void {}

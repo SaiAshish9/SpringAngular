@@ -58,4 +58,7 @@ public class TodoResource {
 		return ResponseEntity.created(uri).build();
 	}
 
+// default username -> user	
+// session cookie is set same browser
+
 }
