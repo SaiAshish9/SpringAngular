@@ -28,7 +28,7 @@ export class ListTodosComponent implements OnInit {
   message: string;
 
   displayedColumns: string[] = [
-    'id',
+    // 'id',
     'description',
     'targetDate',
     'completed',
@@ -63,6 +63,10 @@ export class ListTodosComponent implements OnInit {
   }
 
   updateTodo(id) {
-    this.router.navigate(['todos',id])
+    this.router.navigate(['todos', id]);
+  }
+
+  addTodo() {
+    this.router.navigate(['todos', -1]);
   }
 }
