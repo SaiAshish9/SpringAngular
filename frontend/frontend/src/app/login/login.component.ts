@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     private basicAuthService: BasicAuthenticationService
   ) {}
 
-  username = 'user';
+  username = 'spring.angular';
   password = '123';
   message = '';
 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   handleBasicAuthLogin() {
     this.basicAuthService
-      .executeAuthService(this.username, this.password)
+      .executeJWTAuthService(this.username, this.password)
       .subscribe(
         (data) => {
           console.log(data)
