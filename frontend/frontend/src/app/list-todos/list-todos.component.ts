@@ -1,7 +1,7 @@
 import { TodoDataService } from './../services/data/todo-data.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 export class Todo {
   constructor(
@@ -32,12 +32,14 @@ export class ListTodosComponent implements OnInit {
     'description',
     'targetDate',
     'completed',
-    'actions',
+    'edit',
+    'delete',
   ];
 
   constructor(
     private todoService: TodoDataService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,5 +60,9 @@ export class ListTodosComponent implements OnInit {
       });
       this.refreshTodos();
     });
+  }
+
+  updateTodo(id) {
+    this.router.navigate(['todos',id])
   }
 }
