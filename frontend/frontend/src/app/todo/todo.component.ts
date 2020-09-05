@@ -31,7 +31,8 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo() {
-    if (this.id === -1) {
+    if (this.id == -1) {
+      // === objects == primitive types
       this.todoService
         .createTodo('sai', this.todo)
         .subscribe((data) => {
